@@ -1,0 +1,26 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather application",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/Rahulbaran/Weather-App.git"
+  },
+  "author": "Rahul Baran <rahulkumar109422@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "browser-sync": "^2.27.5",
+    "cssnano": "^5.0.8",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.43.2"
+  }  
+}
