@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rahul Kumar">
+    <meta name="contact" content="rahulkumar109422@gmail.com">
+    <meta name="robots" content="index, follow">
+
+    <title>Weather Application</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Concert+One&family=Noto+Sans&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/script.js" defer></script>
+
+</head>
+<body>
+
+    <!------------- Weather Application --------------->
+    <main class="app--container">
+
+        <!-------- Application header--------->
+        <header class="app__header__container">
+            <h1>Weather App</h1>
+            <p>Check your city weather</p>
+        </header>
+
+        <!--------- Application body --------->
+        <section class="app__body__container">
+
+            <div class="city__name__input__wrapper">
+                <input type="text" name="CityName" class="city__name__field" placeholder="Enter city name">
+                <button class="city__serach__button">
+                    <i class="fas fa-search" title="City Weather Search Button"></i>
+                </button>
+            </div>
+            
+
+            <div class="today__temp__section">
+                <img  alt="" class="weather__icon" src="icons/01d.png">
+                <div>
+                    <h2 class="city__temp"><span>23 </span><sup>o</sup>C</h2>
+                    <p>Jamsedpur, India</p>
+                </div>
+            </div>
+
+
+            <div class="today__sundata__section">
+                <div class="sunrise__wrapper">
+                    <img src="icons/sunrise.png" alt="Sunrise Icon" class="sunrise__icon">
+                    <p class="sunrise__time">06 : 24</p>
+                </div>
+                <div class="sunset__wrapper">
+                    <img src="icons/sunset.png" alt="Sunset Icon" class="sunset__icon">
+                    <p class="sunset__time">17 : 25</p>
+                </div>
+            </div>
+
+
+            <div class="five__days__weather__data__section">
+
+                <div class="day">
+                    <p>Tue, 26</p>
+                    <img src="icons/01d.png" alt="">
+                    <h3>
+                        <span>23 </span><sup>o</sup>C
+                    </h3>
+                </div>
+                <div class="day">
+                    <p>Wed, 27</p>
+                    <img src="icons/01d.png" alt="">
+                    <h3>
+                        <span>24 </span><sup>o</sup>C
+                    </h3>
+                </div>
+                <div class="day">
+                    <p>Thur, 28</p>
+                    <img src="icons/01d.png" alt="">
+                    <h3>
+                        <span>24.5 </span><sup>o</sup>C
+                    </h3>
+                </div>
+                <div class="day">
+                    <p>Fri, 29</p>
+                    <img src="icons/01d.png" alt="">
+                    <h3>
+                        <span>23.7 </span><sup>o</sup>C
+                    </h3>
+                </div>
+                <div class="day">
+                    <p>Sat, 30</p>
+                    <img src="icons/01d.png" alt="">
+                    <h3>
+                        <span>23.3 </span><sup>o</sup>C
+                    </h3>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>Weather Application </h1>
+    
+<main class="app--container">
+
+    <header class="app__header">
+        <h4 class="date">22 July 2021</h4>
+    </header>
+
+    <section class="app__body">
+
+        <div class="weather__info__container">
+            <div class="icon__container">
+                <img src="icons/01d.png" alt="">
+            </div>
+
+            <div class="temp__info__container">
+                <h3>
+                    <span> 22 </span>
+                    <sup>o</sup>C
+                </h3>
+                <h4>Clouds</h4>
+            </div>
+
+            <div class="sun__info__container">
+                <p>Sunrise - <span class="sunrise__time">06:18</span></p>
+                <p>Sunset - <span class="sunset__time">18:10</span></p>
+            </div>
+        </div>
+
+        <div class="city__search__container">
+            <input type="text" name="city" placeholder="enter city name">
+           
+            <button class="search__btn" type="button">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </button>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <h4>Check your city weather information.</h4>
+</footer> -->
