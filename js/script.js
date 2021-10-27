@@ -1,5 +1,151 @@
 'use strict'
 
+/**
+ * Application Name - Weather Application
+ * Author - Rahul Kumar
+ * Description - This weather app lets you check weather for today and also for 
+ * next 5 days (including today).
+ * In the application, Module pattern has been used to make the code cleaner
+ * User your own openWeather API key to analyse the application
+ */
+
+
+/******************Module to make api call & display the weather data ***************/
+const AppModule = {
+
+    timeFormatter (timestamp) {
+
+        const formattedTime = new Date(timestamp*1000);
+        let hours = formattedTime.getHours();
+        let min = formattedTime.getMinutes();
+
+
+        hours = hours < 10 ? `0${hours}` : hours;
+        min = min < 10 ? `0${min}` : min;
+
+        return `${hours} : ${min}`;
+    },
+
+    weatherData (city) {
+        const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+
+        const temp = document.querySelector('.city__temp span');
+        const weatherIcon = document.querySelector('.weather__icon');
+        const cityName = document.querySelector('.city__name');
+        const sunrise = document.querySelector('.sunrise__time');
+        const sunset = document.querySelector('.sunset__time');
+        const dayParas = document.querySelectorAll('.day p');
+        const dayIcons = document.querySelectorAll('.day img');
+        const dayTemps = document.querySelectorAll('.day h3 span')
+
+
+        
+        const options = {  method : 'GET' };
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid={API KEY}`;
+
+
+        // Make http request to receive the weather data
+        fetch(url, options)
+        .then(response => {
+            if (response.ok) return response.json();
+            else console.error(response.statusText);
+        })
+        .then(res => {
+            
+            //1. sunrise
+            sunrise.textContent = this.timeFormatter(res.city.sunrise);
+            
+            //2.sunset
+            sunset.textContent = this.timeFormatter(res.city.sunset);
+
+            //3. temperature
+            temp.textContent = (res.list[0].main.temp).toFixed(1);
+
+            //4. city name
+            cityName.textContent = res.city.name;
+
+            //5. weather Icon
+            weatherIcon.src = `icons/${res.list[0].weather[0].icon}.png`;
+            weatherIcon.alt = `${res.list[0].weather[0].description} icon`;
+
+            //6. weather details for next 5 days
+            for(let i=0,j=0;i <= res.list.length,j < 5; i+=8,j += 1) {
+
+                const day = new Date(res.list[i].dt*1000);
+                
+                //date
+                dayParas[j].textContent = `${weekDays[day.getDay()]}, ${day.getDate()}`;
+                
+                //icon
+                dayIcons[j].src = `icons/${res.list[i].weather[0].icon}.png`;
+                dayIcons[j].alt = `${res.list[i].weather[0].description} icon`;
+                
+                //temperature
+                dayTemps[j].textContent = (res.list[i].main.temp).toFixed(1);
+            }
+
+
+        })
+        .catch(() => console.error('Network error'));
+    }
+    
+};
+
+
+
+
+
+
+
+/******************* Module to handle event handlers ******************* */
+const EventModule = {
+
+    event (AppMod) {
+
+        const searchBtn = document.querySelector('.city__search__btn i');
+        const cityField = document.querySelector('.city__name__field');
+
+         //Event handler for search button
+        searchBtn.addEventListener('click', weatherFunc);
+
+        //event handler for enter key
+        document.addEventListener('keydown', e => {
+            if (e.key === "Enter") weatherFunc();
+        })
+
+
+
+        // Function to execute after user click on search button
+        function weatherFunc() {
+
+            //1. Take the city name
+            const cityName = cityField.value;
+            cityField.value = '';
+            cityField.focus();
+
+            //2. Check for valid city name
+            if(cityName !== '') {
+                
+                //Pass the cityname into APP MODULE
+                AppMod.weatherData(cityName)
+            }
+        }
+
+
+        //When browser loads first time
+        window.onload = () => {
+            AppMod.weatherData('Giridih');
+            cityField.focus();
+        } 
+    
+    }
+ 
+};
+
+EventModule.event(AppModule);
+
+
+
 
 
 

@@ -59,7 +59,7 @@ function browserReload(cb) {
 function watchTask() {
     watch("*.html", browserReload);
     watch("scss/*.scss", series(sassTask, browserReload));
-    watch("js/*.js", series(jsTask,browserReload));
+    watch("js/*.js", series(jsTask, browserReload));
 }
 
 
